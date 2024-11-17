@@ -1,3 +1,4 @@
+package src.main.java.todo;
 /**
  * Raised if an invalid task is added to a user's list
  * 

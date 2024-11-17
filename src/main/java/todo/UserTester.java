@@ -1,3 +1,5 @@
+package src.main.java.todo;
+
 /**
  * Tests the User class
  * 

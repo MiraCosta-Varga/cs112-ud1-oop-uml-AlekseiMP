@@ -1,3 +1,4 @@
+package src.main.java.todo;
 /**
  * Tests the Task class
  * 
@@ -6,7 +7,7 @@
 public class TaskTester {
     public static void main(String[] args) {
         Task javaProject = new Task("Finish Java Project", "2024-10-20", Task.PriorityLevel.HIGH);
-        Task groceries = new Task("Buy groceries", "2024-10-25", Task.PriorityLevel.MEDIUM);
+        Task groceries = new Task("Buy groceries", "2024-10-25", "Medium");
 
         // Make sure of correct titles
         System.out.println("javaProject title: " + javaProject.getTitle());

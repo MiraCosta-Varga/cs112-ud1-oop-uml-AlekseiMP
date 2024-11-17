@@ -1,5 +1,7 @@
+package src.main.java.todo;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Represents a user with a unique task list.
  * 
@@ -7,15 +9,22 @@ import java.util.List;
  */
 public class User {
     private String username;
-    private List<Task> taskList;
+    private List<ListItem> taskList;
 
-    // Constructor
+    /**
+     * Creates a user with the given username
+     * @param username The user's name
+     */
     public User(String username) {
         this.username = username;
         this.taskList = new ArrayList<>();
     }
 
-    // Method to add a task
+    /**
+     * Adds a task to a user's todo list
+     * @param task The task to add
+     * @throws InvalidTaskException if {@code task} is missing a title
+     */
     public void addTask(Task task) throws InvalidTaskException {
         if (task.getTitle() == null || task.getTitle().isEmpty()) {
             throw new InvalidTaskException("Task title cannot be null or empty.");
@@ -23,21 +32,27 @@ public class User {
         taskList.add(task);
     }
 
-    // Method to remove a task
+    /** 
+     * Removes the item from the todo list
+     * @param task The task to be removed
+     */
     public void removeTask(Task task) {
         taskList.remove(task);
     }
 
-    // Get all tasks
-    public List<Task> getTasks() {
+    /** 
+     * Get a user's todo list
+     * @return The user's todo list
+     */
+    public List<ListItem> getTasks() {
         return taskList;
     }
 
-    // Display all tasks for the user
+    /** Display all tasks for the user */
     public String prettyTasks() {
         String ret = "";
 
-        for (Task task : taskList) {
+        for (ListItem task : taskList) {
             ret += task.prettyPrint();
             ret += "\n";
         }
@@ -46,6 +61,7 @@ public class User {
 
     }
 
+    /** Display a user's todo list */
     public String display() {
         String ret = "User " + username + "'s Tasks:\n";
         ret += prettyTasks();
